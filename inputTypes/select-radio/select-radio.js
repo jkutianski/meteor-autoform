@@ -1,3 +1,6 @@
+/* jshint esversion: 6 , camelcase: false */
+import { Random } from 'meteor/random';
+
 AutoForm.addInputType("select-radio", {
   template: "afRadioGroup",
   valueOut: function () {
@@ -37,11 +40,20 @@ Template.afRadioGroup.helpers({
     // remove data-schema-key attribute because we put it
     // on the entire group
     delete atts["data-schema-key"];
+
+    // remove required for accesibility issues
+    delete atts.required;
+
     return atts;
   },
   dsk: function dsk() {
     return {
       "data-schema-key": this.atts["data-schema-key"]
     };
+  },
+  lf: function lf() {
+    // change id for <label> & <input>
+    this.atts.id = Random.id();
+    return { for: this.atts.id };
   }
 });

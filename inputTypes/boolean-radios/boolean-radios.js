@@ -1,3 +1,6 @@
+/* jshint esversion: 6 , camelcase: false */
+import { Random } from 'meteor/random';
+
 AutoForm.addInputType("boolean-radios", {
   template: "afBooleanRadioGroup",
   valueOut: function () {
@@ -41,5 +44,10 @@ Template.afBooleanRadioGroup.helpers({
   },
   dsk: function () {
     return {'data-schema-key': this.atts['data-schema-key']};
+  },
+  lf: function lf() {
+    // change id for <label> & <input>
+    this.atts.id = Random.id();
+    return { for: this.atts.id };
   }
 });

@@ -1,3 +1,6 @@
+/* jshint esversion: 6 , camelcase: false */
+import { Random } from 'meteor/random';
+
 AutoForm.addInputType("boolean-checkbox", {
   template: "afCheckbox",
   valueOut: function () {
@@ -16,5 +19,10 @@ AutoForm.addInputType("boolean-checkbox", {
     //don't add required attribute to checkboxes because some browsers assume that to mean that it must be checked, which is not what we mean by "required"
     delete context.atts.required;
     return context;
+  },
+  lf: function lf() {
+    // change id for <label> & <input>
+    this.atts.id = Random.id();
+    return { for: this.atts.id };
   }
 });
