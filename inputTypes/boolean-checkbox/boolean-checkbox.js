@@ -22,7 +22,7 @@ AutoForm.addInputType("boolean-checkbox", {
   }
 });
 
-Template.afBooleanRadioGroup.helpers({
+Template.afCheckbox.helpers({
   atts: function selectedAttsAdjust() {
     var atts = _.clone(this.atts);
     return atts;
