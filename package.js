@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'aldeed:autoform',
+  name: 'miar:aldeed:autoform',
   summary: 'Easily create forms with automatic insert and update, and automatic reactive validation.',
   git: 'https://github.com/aldeed/meteor-autoform.git',
   version: '6.3.0'
